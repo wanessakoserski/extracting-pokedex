@@ -1,5 +1,5 @@
 import scrapy
-import csv
+
 
 class PokemonScrapper(scrapy.Spider):
     name = 'pokemon_scrapper'
@@ -102,10 +102,10 @@ class PokemonScrapper(scrapy.Spider):
         yield {
                 'pokemon_number': pokemon_number,
                 'pokemon_name': pokemon_name,
+                'pokemon_url': pokemon_url,
                 'pokemon_height': pokemon_height,
                 'pokemon_weight': pokemon_weight,
                 'pokemon_types': pokemon_types,
                 'pokemon_evolution': pokemon_evolution,
                 'pokemon_abilities': pokemon_abilities_names
             }
-        
