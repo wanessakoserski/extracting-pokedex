@@ -18,9 +18,9 @@ def convert_to_list(json_structure):
 
 data = pd.read_csv('file.csv')
 
-# Pegar apenas os três primeiros caracteres
-data['pokemon_height'] = data['pokemon_height'].str[:3]
-data['pokemon_weight'] = data['pokemon_weight'].str[:3]
+# Pegar apenas os primeiros caracteres
+data['pokemon_height'] = data['pokemon_height'].str.split('\u00a0').str[0]
+data['pokemon_weight'] = data['pokemon_weight'].str.split('\u00a0').str[0]
 
 # Formatar para lista quando necessário para o conversor de json entender
 data['pokemon_types'] = data['pokemon_types'].apply(lambda x: list(set(x.split(','))) if ',' in x else x)
