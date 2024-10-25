@@ -145,19 +145,32 @@ class CreateDB:
         for item in data:
             main_number = item['pokemon_number']
             evos = item['pokemon_evolution']
-            print(number)
+            print(main_number)
+            if evos:
+                for evo in evos:
+                    generation = evo['generation']
+                    number = evo['number']
+                    number = number.lstrip("#0") 
 
-            for evo in evos:
-                generation = evo['generation']
-                number = evo['number']
-                number = number.lstrip("#0") 
+                    if main_number != number:
+                        query = f"""
+                        MATCH (p1:POKEMON {{number: {main_number}}})-[e:ENVOLVES]-(p2:POKEMON {{number: {number}}})
+                        RETURN count(e) > 0 AS exists
+                        """
 
-                query = f"""
-                    MATCH (p1:POKEMON {{number: {main_number}}}), (p2:POKEMON {{number: {number}}})
-                    CREATE (p1)-[:ENVOLVES {{generation: {generation}}}]->(p2)
-                """
+                        results = self.run_return_query(query)
+                        exists = False
+                        for item in results:
+                            if item["exists"]:
+                                exists = True
 
-                self.run_write_query(query)
+                        if not exists:
+                            query = f"""
+                                MATCH (p1:POKEMON {{number: {main_number}}}), (p2:POKEMON {{number: {number}}})
+                                CREATE (p1)-[:ENVOLVES {{generation: {generation}}}]->(p2)
+                            """
+
+                            self.run_write_query(query)
 
             
 
@@ -170,4 +183,5 @@ db.clean_base()
 db.create_type_graph()
 db.create_ability_graph()
 db.create_pokemon_graph()
+db.create_evolution_relation()
 db.close()

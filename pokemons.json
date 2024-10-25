@@ -5587,7 +5587,21 @@
         "pokemon_height":"0.8",
         "pokemon_weight":"117.0",
         "pokemon_types":"Fighting",
-        "pokemon_evolution":"[{'generation': 1, 'number': '#0083', 'name': \"Farfetch'd\", 'url': 'https:\/\/pokemondb.net\/pokedex\/farfetchd'}, {'generation': 2, 'number': '#0865', 'name': \"Sirfetch'd\", 'url': 'https:\/\/pokemondb.net\/pokedex\/sirfetchd'}]",
+        "pokemon_evolution":
+        [
+            {
+                "generation": 1, 
+                "number": "#0083", 
+                "name": "Farfetch'd", 
+                "url": "https:\/\/pokemondb.net\/pokedex\/farfetchd"
+            }, 
+            {
+                "generation": 2, 
+                "number": "#0865", 
+                "name": "Sirfetch'd", 
+                "url": "https:\/\/pokemondb.net\/pokedex\/sirfetchd"
+            }
+        ],
         "pokemon_abilities":"Steadfast"
     },
     {
@@ -25407,7 +25421,21 @@
             "Normal",
             "Fighting"
         ],
-        "pokemon_evolution":"[{'generation': 1, 'number': '#0083', 'name': \"Farfetch'd\", 'url': 'https:\/\/pokemondb.net\/pokedex\/farfetchd'}, {'generation': 2, 'number': '#0865', 'name': \"Sirfetch'd\", 'url': 'https:\/\/pokemondb.net\/pokedex\/sirfetchd'}]",
+        "pokemon_evolution":
+        [
+            {
+                "generation": 1, 
+                "number": "#0083", 
+                "name": "Farfetch'd", 
+                "url": "https:\/\/pokemondb.net\/pokedex\/farfetchd"
+            }, 
+            {
+                "generation": 2, 
+                "number": "#0865", 
+                "name": "Sirfetch'd", 
+                "url": "https:\/\/pokemondb.net\/pokedex\/sirfetchd"
+            }
+        ],
         "pokemon_abilities":[
             "Inner Focus",
             "Keen Eye",
